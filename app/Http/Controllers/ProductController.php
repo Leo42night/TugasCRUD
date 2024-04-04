@@ -38,7 +38,7 @@ class ProductController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $this->validate($request, [
-            'kode' => 'required|string|max:255',
+            'kode' => 'required|string|max:255|unique:products',
             'name' => 'required|string|max:255',
             'price' => ['nullable', 'numeric', 'regex:/^[+-]?(\d+\.\d+|\d+)$/'],
             'stock' => 'integer|min:0',
@@ -51,37 +51,11 @@ class ProductController extends Controller
 
         return redirect(route('kosong'));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = Product::findOrFail($id);
         return response(view('products.edit', ['product' => $product]));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $validatedData = $this->validate($request, [

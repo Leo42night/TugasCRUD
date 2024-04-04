@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -56,7 +57,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         return response(view('products.edit', ['product' => $product]));
     }
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         $validatedData = $this->validate($request, [
             'kode' => 'required|string|max:255',
@@ -70,14 +71,6 @@ class ProductController extends Controller
             return redirect(route('index'))->with('success', 'Updated!');
         }
     }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $product = Product::findOrFail($id);

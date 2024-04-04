@@ -8,13 +8,21 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $active == 'home' ? 'active' : ' ' }}" href="{{ route('index') }}">Home</a>
+                    <a class="nav-link {{ $active == 'home' ? 'active' : ' ' }}" href="{{ route('index') }}">
+                        <button type="button"
+                            class="btn btn{{ $active == 'home' ? '-' : '-outline-' }}secondary">Home</button></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active == 'brand' ? 'active' : ' ' }}" href="{{ route('brand') }}">Brand</a>
+                    <a class="nav-link {{ $active == 'brand' ? 'active' : ' ' }}" href="{{ route('brand') }}">
+                        <button type="button"
+                            class="btn btn{{ $active == 'brand' ? '-' : '-outline-' }}secondary">Brand</button>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active == 'categories' ? 'active' : ' ' }}" href="{{ route('categories') }}">Categories</a>
+                    <a class="nav-link {{ $active == 'categories' ? 'active' : ' ' }}" href="{{ route('categories') }}">
+                        <button type="button"
+                            class="btn btn{{ $active == 'categories' ? '-' : '-outline-' }}secondary">Categories</button>
+                    </a>
                 </li>
             </ul>
         </div>

@@ -33,7 +33,7 @@
                                 <div class="mb-3">
                                     <label class="form-label">Kode</label>
                                     <input type="text" class="form-control" name="kode"
-                                        value="{{ old('kode') }}" laceholder="#KODE">
+                                        value="{{ old('kode') }}" placeholder="#KODE">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
